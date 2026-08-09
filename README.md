@@ -17,8 +17,7 @@
 
 [Live Demo](#) · [Architecture](#architecture) · [Quick Start](#quick-start) · [API Docs](#api-documentation)
 
-![FraudShield Dashboard](https:/![Uploading image.png…]()
-/1200x600/1e293b/6366f1?text=FraudShield+Pro+Dashboard)
+![FraudShield Dashboard](https:/1200x600/1e293b/6366f1?text=FraudShield+Pro+Dashboard)
 
 </div>
 
