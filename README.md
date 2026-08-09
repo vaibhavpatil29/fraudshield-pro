@@ -1,6 +1,6 @@
 # FraudShield Pro
 
-Real-time payment fraud detection platform built as a CSE final year project.
+Real-time payment fraud detection platform.
 
 ## Tech Stack
 - **Backend**: FastAPI, PostgreSQL, Redis, Kafka (Redpanda)
