@@ -1,10 +1,25 @@
+<div align="center">
+
 # 🛡️ FraudShield Pro
 
 ### Real-time Payment Fraud Detection Platform
 
-
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react)](https://reactjs.org)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python)](https://python.org)
+[![XGBoost](https://img.shields.io/badge/XGBoost-AUC--ROC%200.97-FF6600?style=flat-square)](https://xgboost.readthedocs.io)
+[![Kafka](https://img.shields.io/badge/Kafka-Redpanda-E34F26?style=flat-square)](https://redpanda.com)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=flat-square&logo=postgresql)](https://postgresql.org)
+[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker)](https://docker.com)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 **FraudShield Pro** is a production-grade, real-time payment fraud detection platform that automatically scores every transaction using machine learning, explains why it was flagged using SHAP, and routes alerts to analysts via a live React dashboard — all in under 100ms.
+
+[Live Demo](#) · [Architecture](#architecture) · [Quick Start](#quick-start) · [API Docs](#api-documentation)
+
+![FraudShield Dashboard](https://via.placeholder.com/1200x600/1e293b/6366f1?text=FraudShield+Pro+Dashboard)
+
+</div>
 
 ---
 
@@ -24,7 +39,7 @@ When a payment is submitted:
 
 ---
 
-##  Architecture
+## 🏗️ Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -373,5 +388,5 @@ MIT License — see [LICENSE](LICENSE) for details.
 <div align="center">
   Built by <strong>Vaibhav</strong> · B.Tech Computer Science · 2026<br/>
   <a href="https://linkedin.com/in/vaibhav29v">LinkedIn</a> ·
-  <a href="https://github.com/vaibhav29v">GitHub</a>
+  <a href="https://github.com/vaibhav29">GitHub</a>
 </div>
