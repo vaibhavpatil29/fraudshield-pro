@@ -7,10 +7,18 @@ _producer = None
 async def get_producer() -> AIOKafkaProducer:
     global _producer
     if _producer is None:
-        _producer = AIOKafkaProducer(
-            bootstrap_servers=settings.KAFKA_BOOTSTRAP_SERVERS,
-            value_serializer=lambda v: json.dumps(v, default=str).encode("utf-8")
-        )
+        kwargs = {
+            "bootstrap_servers": settings.KAFKA_BOOTSTRAP_SERVERS,
+            "value_serializer": lambda v: json.dumps(v, default=str).encode("utf-8")
+        }
+        if settings.KAFKA_SASL_USERNAME:
+            kwargs.update({
+                "security_protocol": "SASL_SSL",
+                "sasl_mechanism": "SCRAM-SHA-256",
+                "sasl_plain_username": settings.KAFKA_SASL_USERNAME,
+                "sasl_plain_password": settings.KAFKA_SASL_PASSWORD,
+            })
+        _producer = AIOKafkaProducer(**kwargs)
         await _producer.start()
     return _producer
 

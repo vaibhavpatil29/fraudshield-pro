@@ -84,20 +84,20 @@ async def process_transaction(txn_data: dict, db: AsyncSession):
         await db.rollback()
         
 async def start_scoring_consumer():
-    """Main Kafka consumer loop."""
-    logger.info("Starting scoring consumer...")
-    logger.info(f"Connecting to Kafka: {settings.KAFKA_BOOTSTRAP_SERVERS}")
-
-    consumer = AIOKafkaConsumer(
-        settings.KAFKA_TOPIC_RAW,
-        bootstrap_servers=settings.KAFKA_BOOTSTRAP_SERVERS,
-        group_id="fraud-scoring-group",
-        value_deserializer=lambda v: json.loads(v.decode("utf-8")),
-        auto_offset_reset="earliest"
-    )
-
-    await consumer.start()
-    logger.info(f"Consumer started. Listening on topic: {settings.KAFKA_TOPIC_RAW}")
+    kwargs = {
+        "bootstrap_servers": settings.KAFKA_BOOTSTRAP_SERVERS,
+        "group_id": "fraud-scoring-group",
+        "value_deserializer": lambda v: json.loads(v.decode("utf-8")),
+        "auto_offset_reset": "earliest"
+    }
+    if settings.KAFKA_SASL_USERNAME:
+        kwargs.update({
+            "security_protocol": "SASL_SSL",
+            "sasl_mechanism": "SCRAM-SHA-256",
+            "sasl_plain_username": settings.KAFKA_SASL_USERNAME,
+            "sasl_plain_password": settings.KAFKA_SASL_PASSWORD,
+        })
+    consumer = AIOKafkaConsumer(settings.KAFKA_TOPIC_RAW, **kwargs)
 
     try:
         async for message in consumer:

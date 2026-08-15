@@ -12,3 +12,4 @@ ml/models/*.pkl
 mlruns/
 .idea/
 .vscode/
+ml/models/*.json
