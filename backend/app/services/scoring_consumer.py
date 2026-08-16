@@ -96,6 +96,7 @@ async def start_scoring_consumer():
             "sasl_mechanism": "SCRAM-SHA-256",
             "sasl_plain_username": settings.KAFKA_SASL_USERNAME,
             "sasl_plain_password": settings.KAFKA_SASL_PASSWORD,
+            "ssl_context": __import__('ssl').create_default_context(),
         })
     consumer = AIOKafkaConsumer(settings.KAFKA_TOPIC_RAW, **kwargs)
     await consumer.start()

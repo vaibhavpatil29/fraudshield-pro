@@ -17,6 +17,7 @@ async def get_producer() -> AIOKafkaProducer:
                 "sasl_mechanism": "SCRAM-SHA-256",
                 "sasl_plain_username": settings.KAFKA_SASL_USERNAME,
                 "sasl_plain_password": settings.KAFKA_SASL_PASSWORD,
+                "ssl_context": __import__('ssl').create_default_context(),
             })
         _producer = AIOKafkaProducer(**kwargs)
         await _producer.start()
