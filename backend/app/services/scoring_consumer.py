@@ -98,6 +98,7 @@ async def start_scoring_consumer():
             "sasl_plain_password": settings.KAFKA_SASL_PASSWORD,
         })
     consumer = AIOKafkaConsumer(settings.KAFKA_TOPIC_RAW, **kwargs)
+    await consumer.start()
 
     try:
         async for message in consumer:
