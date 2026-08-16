@@ -173,7 +173,7 @@ export default function Simulator() {
 
       try {
 
-        await axios.post('http://localhost:8000/transactions', txn, {
+        await axios.post(`${import.meta.env.VITE_API_URL || 'https://fraudshield-backend-az3h.onrender.com'}/transactions`, txn, {
   headers: {
     Authorization: `Bearer ${getToken()}`
   }
